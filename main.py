@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import requests
 import json
 from contract_manager import Contract_Manager
@@ -15,6 +15,10 @@ def perform():
     data = {"result": result}
     json_data = json.dumps(data)
     return json_data
+
+@app.route('/instagram', methods=['GET', 'POST'])
+def index():
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
